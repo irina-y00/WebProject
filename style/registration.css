@@ -4,22 +4,22 @@ body {
 }
 
 body {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
     background-image: linear-gradient(5deg, #ffd5d1 10%, #ffdfd521 150%);
 }
 
 .form-login {
+    -ms-flex-align: center;
+    align-items: center;
     width: 100%;
     max-width: 400px;
     padding: 15px;
     margin: auto;
     background-color: #f5f5f5;
     border-radius: 15px;
+    position: fixed; top: 50%; left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .form-login .form-control {
@@ -51,14 +51,4 @@ body {
     box-sizing: border-box;
     margin-bottom: 10px;
     border-radius: 10px;
-}
-
-.btn{
-    background-color: #ffdfd5;
-    border-color: #696969;
-    color: black;
-    padding-right: 10px;
-    margin-left: 10px;
-    text-align: center;
-    font-size: 16px;
 }
