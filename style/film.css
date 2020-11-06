@@ -1,0 +1,26 @@
+.film-img{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.row{
+    margin-right: 5%;
+}
+.card{
+    margin-top: 10px;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    background-color: #ffdfd5;
+}
+
+.card-title{
+    margin-top: 4%;
+}
+
+.card-text{
+    margin-left: 5px;
+}
+
+.nav-link{
+    color: black;
+}

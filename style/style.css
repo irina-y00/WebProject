@@ -100,6 +100,21 @@
     margin-bottom: 10px;
 }
 
+.footer {
+    background-color: #fff7f8;
+    /*margin-top: 16px;*/
+    height: 80px;
+}
+
+.marketing{
+    /*background-color: #ffdfd521;*/
+    margin-top: 16px;
+}
+
+.img-film{
+    margin-top: 16px;
+    margin-left: 23%;
+}
 
 
 
