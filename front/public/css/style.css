@@ -51,7 +51,7 @@
 }
 
 .carousel-item img{
-    margin-left: 10%;
+    margin-left: 20%;
 }
 
 .carousel-control-prev:hover,
@@ -101,14 +101,15 @@
 }
 
 .footer {
-    background-color: #fff7f8;
+    background-color: #c3adad;
     /*margin-top: 16px;*/
     height: 80px;
 }
 
 .marketing{
-    /*background-color: #ffdfd521;*/
+    /*background-color: rgba(146, 96, 79, 0.13);*/
     margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .img-film{
