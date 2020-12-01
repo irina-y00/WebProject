@@ -3,86 +3,54 @@
     <div class="col-md-3">
       <div class="filter">
         <h5>Категория</h5>
-        <ul class="list-unstyled">
-          <li v-for="category in filter.categories">
+        <ul>
+          <li v-for="(category, index) in filter.categories" :key="index">
             <label>
-              <input type="checkbox"> {{category}}
+              <input type="checkbox"> {{ category }}
             </label>
           </li>
         </ul>
         <hr>
       </div>
-      <div class="filter">
-        <h5>Начинка</h5>
-        <ul class="list-unstyled">
-          <li v-for="filling in filter.fillings">
-            <label>
-              <input type="checkbox"> {{filling}}
-            </label>
-          </li>
-        </ul>
-        <hr>
-      </div>
-      <div class="filter">
-        <h5>Вес</h5>
-        <div class="d-flex">
-          <input type="number" class="form-control" placeholder="от">
-          <input type="number" class="form-control" placeholder="до">
-        </div>
-        <hr>
-      </div>
-      <div class="filter">
-        <h5>Стоимость</h5>
-        <div class="d-flex">
-          <input type="number" class="form-control" placeholder="от">
-          <input type="number" class="form-control" placeholder="до">
-        </div>
-        <hr>
-      </div>
     </div>
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-lg-4" v-for="item in items">
-          <Film v-bind:film="item"></Film>
+        <div class="col-md-9">
+          <div class="row">
+          <div class="col-md-4" v-for="(item,index) in items" :key="index">
+            <Film v-bind:film="item"></Film>
+          </div>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
 </template>
-
 <script>
 import Film from "@/components/films/Film";
+
 export default {
   name: "FilmList",
   components: {Film},
   data() {
     return {
       filter: {
-        categories: ['Торты', 'Капкейки', 'Пирожные', 'Пончики', 'Печенье'],
-        fillings: ['Три шоколада', 'Сливочно-клубничная', 'Красный бархат', 'Морковная с апельсиновым курдом', 'Чизкейк Орео', 'Кокосовая',
-          'Фисташка-малина', 'Банан-шоколад', 'Лаванда-еживика', 'Пломбир', 'Сникерс', 'Своя начинка']
+        categories: ['Ужасы', 'Драмы', 'Мелодрамы', 'Комедии', 'Боевики', 'Триллеры'],
       },
       items: [
         {
           id: 1,
-          name: 'Торт "Секрес небес"',
-          url: 'СекретНебес',
-          image: 'https://madbutterbd.com/images/mad_butter/products/1/image.jpg',
-          price: 3500
+          name: 'Джокер',
+          url: 'Джокер',
+          image: 'https://thumbs.dfs.ivi.ru/storage15/contents/7/d/726a60465521a979da1e41c3a01815.jpg',
         },
         {
           id: 2,
-          name: 'Капкейки "Единорог"',
-          url: 'Единорог',
-          image: 'https://i.pinimg.com/originals/69/42/b8/6942b8c6c23c9705e82055a5f27e57ce.jpg',
-          price: 650
+          name: 'Пираты карибского моря',
+          url: 'Пираты карибского моря',
+          image: 'https://thumbs.dfs.ivi.ru/storage2/contents/d/c/f009bc121ec961e914dfb6ca2e094d.jpg',
         },
         {
           id: 3,
-          name: 'Торт "Космос"',
-          url: 'Космос',
-          image: 'https://i.pinimg.com/736x/92/79/f7/9279f78aa0e02295cb9d31d1464dbb38.jpg',
-          price: 3500
+          name: 'Основатель',
+          url: 'Основатель',
+          image: 'https://thumbs.dfs.ivi.ru/storage15/contents/0/9/1873d5a7e02390a8d273a7b54ef0fb.jpg',
         },
       ]
     }

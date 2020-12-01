@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Film from "@/views/Film";
 import Catalog from "@/views/Catalog";
+import Registration from "@/views/Registration";
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,7 @@ const routes = [
         component: Home
     },
     {
-        path: '/Film',
+        path: '/film',
         name: 'Film',
         component: Film
     },
@@ -21,6 +22,11 @@ const routes = [
         path: '/catalog',
         name: 'Catalog',
         component: Catalog
+    },
+    {
+        path: '/registration',
+        name: 'Registration',
+        component: Registration
     },
 ]
 

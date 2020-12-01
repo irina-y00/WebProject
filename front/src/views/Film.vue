@@ -67,7 +67,7 @@
 
 <script>
 export default {
-name: "films",
+name: 'films',
     data() {
   return {
     film: {}
@@ -75,13 +75,12 @@ name: "films",
 },
 created() {
   // const url = this.$route.params.url
-  const result = {
+  this.film = {
     id: 1,
     name: 'Фильм Джокер',
     url: 'Джокер',
     image: 'https://thumbs.dfs.ivi.ru/storage15/contents/7/d/726a60465521a979da1e41c3a01815.jpg',
   }
-  this.film = result
 },
 }
 </script>

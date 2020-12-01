@@ -1,13 +1,17 @@
 <template>
-  <div class="product mb-5">
+  <div class="col-md-5 catalog-title">
     <div class="form-group text-center">
-      <img class="img-fluid img-border" v-bind:src="film.image">
+      <img class="film-img"
+           v-bind:src="film.image"
+           width="172"
+           height="264">
     </div>
-    <h3>
-      <router-link v-bind:to="{name: 'Film', params: {url: film.url}}">
-        {{film.name}}
+    <h5>
+      {{film.name}}
+      <router-link class="btn catalog-title" v-bind:to="{name: 'Film', params: {url: film.url}}">
+        Смотреть подробнее »
       </router-link>
-    </h3>
+    </h5>
   </div>
 </template>
 
