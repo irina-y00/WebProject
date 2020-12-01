@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Film from "@/views/Film";
 import Catalog from "@/views/Catalog";
 import Registration from "@/views/Registration";
+import Profile from "@/views/Profile";
+import SignIn from "@/views/SignIn";
 
 Vue.use(VueRouter)
 
@@ -27,6 +29,16 @@ const routes = [
         path: '/registration',
         name: 'Registration',
         component: Registration
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+    },
+    {
+        path: '/sign-in',
+        name: 'SignIn',
+        component: SignIn
     },
 ]
 

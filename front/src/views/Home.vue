@@ -4,7 +4,7 @@
     <div class="container marketing">
       <h2>Рекомендуем вам</h2>
       <div class="row">
-        <div class="col-lg-4" v-for="item in items">
+        <div class="col-lg-4" v-for="(item, index) in items" :key="index">
           <HitFilm v-bind:hitFilm="item"></HitFilm>
         </div>
       </div>

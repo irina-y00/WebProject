@@ -7,14 +7,14 @@
       <template #img>
         <img width="891"
              height="525"
-             src="https://thumbs.dfs.ivi.ru/storage26/contents/a/7/c4ce2b57ebeee7bcce70dc98a2e924.jpg">
+             src="https://thumbs.dfs.ivi.ru/storage26/contents/e/2/c38ea08668995363acf24220ddb7f6.jpg">
       </template>
     </b-carousel-slide>
     <b-carousel-slide>
       <template #img>
         <img width="891"
              height="525"
-             src="https://thumbs.dfs.ivi.ru/storage26/contents/e/2/c38ea08668995363acf24220ddb7f6.jpg">
+             src="https://thumbs.dfs.ivi.ru/storage26/contents/a/7/c4ce2b57ebeee7bcce70dc98a2e924.jpg">
       </template>
     </b-carousel-slide>
     <b-carousel-slide>
