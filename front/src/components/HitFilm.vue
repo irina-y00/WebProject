@@ -1,14 +1,14 @@
 <template>
   <div>
     <img class="img-film"
-         v-bind:src="hitFilm.image"
+         v-bind:src="hitFilm.uriImage"
          alt="image"
          width="172"
          height="264">
     <h4>{{ hitFilm.name }}</h4>
-    <p> {{ hitFilm.text }}</p>
+    <p> {{ hitFilm.description }}</p>
     <div>
-        <router-link v-bind:to="{name: 'Film', params: {url: hitFilm.url}}" class="btn">
+        <router-link v-bind:to="{name: 'Film', params: {id: hitFilm.id}}" class="btn">
           Смотреть подробнее »
         </router-link>
     </div>

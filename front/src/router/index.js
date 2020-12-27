@@ -16,9 +16,10 @@ const routes = [
         component: Home
     },
     {
-        path: '/film',
+        path: '/film/:id',
         name: 'Film',
-        component: Film
+        component: Film,
+        props: true
     },
     {
         path: '/catalog',

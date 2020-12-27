@@ -95,10 +95,11 @@ export default {
 <style scoped>
 
 .container{
-  width: 800px;
+  width: 500px;
   height: 500px;
   margin-top: 2%;
   margin-bottom: 11%;
+  margin-left: 7%;
 }
 
 .card-body{
@@ -107,7 +108,7 @@ export default {
   padding: 15px;
   margin-bottom: 3%;
   margin-top: 3%;
-  margin-left: 24%;
+  margin-left: 33%;
   background-color: #f5f5f5;
   border-radius: 15px;
   top: 50%;

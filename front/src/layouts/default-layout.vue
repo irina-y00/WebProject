@@ -36,32 +36,9 @@
                 Фильмы
               </router-link>
             </li>
-
-            <li class="nav-item active">
-              <router-link class="nav-link"
-                           v-bind:to="{name: 'Catalog'}">
-                Мультфильмы
-                <span class="sr-only">(current)</span>
-              </router-link>
-            </li>
-
-            <li class="nav-item active">
-              <router-link class="nav-link"
-                           v-bind:to="{name: 'Catalog'}">
-                Сериалы
-                <span class="sr-only">(current)</span>
-              </router-link>
-            </li>
           </ul>
 
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2"
-                   type="search"
-                   placeholder="Поиск по сайту">
-            <button class="btn btn-nav"
-                    type="submit">
-              Поиск
-            </button>
 
             <div>
               <router-link class="btn btn-nav"

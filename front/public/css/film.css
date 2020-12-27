@@ -11,6 +11,15 @@
     margin-left: 2%;
     margin-bottom: 10px;
     background-color: #ffdfd5;
+    width: 1200px;
+}
+
+.card2{
+    margin-top: 10px;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    background-color: #ffdfd5;
+    width: 1000px;
 }
 
 .card-title{

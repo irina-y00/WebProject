@@ -8,7 +8,7 @@ body {
 }
 
 .form-login {
-    -ms-flex-align: center;
+/*    -ms-flex-align: center;*/
     align-items: center;
     width: 100%;
     max-width: 400px;
@@ -18,7 +18,7 @@ body {
     border-radius: 15px;
     position: fixed;
     top: 50%;
-    left: 50%;
+    /*left: 0%;*/
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);

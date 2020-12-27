@@ -5,30 +5,24 @@
         <div class="row ">
           <div class="col-md-4">
             <img class="film-img"
-                 v-bind:src="film.image"
+                 v-bind:src="film.uriImage"
                  width="332"
                  height="524">
           </div>
           <div class="col-md-6">
             <h2 class="card-title film-title">
-              {{film.name}}
+              {{ film.name }}
             </h2>
             <hr>
-            <p class="card-text">
-              Как неудачливый комик стал самым опасным человеком в Готэме. Бенефис Хоакина Феникса и
-              «Оскар» за саундтрек
-            </p>
             <hr>
             <br>
             <h3>О фильме</h3>
             <hr>
             <p class="card-text">
-              <strong>Год производства:</strong> 2019 <br>
-              <strong>Страна:</strong> США, Канада <br>
-              <strong>Жанр:</strong> триллер, драма, криминал <br>
-              <strong>Режиссер:</strong> Тодд Филлипс <br>
-              <strong>Бюджет:</strong> $55 000 000 <br>
-              <strong>Время:</strong> 122 мин.
+              <strong>Дата премьеры:</strong> {{ film.infoFilm.date }} <br>
+              <strong>Жанр:</strong> {{ getGenre() }} <br>
+              <strong>Режиссер:</strong> {{ getDirector() }} <br>
+              <strong>Бюджет:</strong> {{ film.infoFilm.budget }} <br>
             </p>
             <hr>
           </div>
@@ -36,51 +30,108 @@
       </div>
       <div class="card  info-product">
         <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item"> <a class="nav-link active" href="#">Обзор</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Награды</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Рецензии</a> </li>
+          <ul class="nav nav-tabs card-header-tabs ">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#description" @click="currentTab = 'disc'">Описание</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#comments" @click="currentTab = 'comments'">Отзывы</a>
+            </li>
           </ul>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Готэм, начало 1980-х годов. Неудачливый клоун Артур Флек однажды перестает бороться со своим
-            безумием и жестоко смеется над всем ненавистным городом. Лауреат премии «Оскар» Хоакин Феникс
-            исполнил одну из лучших ролей в своей карьере в долгожданном фильме-событии «Джокер» режиссера
-            Тодда Филлипса. На Венецианском фестивале-2019 фильм получил главный приз «Золотой лев».
-            <br>
-            Артур Флек – один из миллионов жителей мрачных трущоб Готэм-сити. Он работает уличным клоуном,
-            наблюдается у врача-психиатра и, сколько себя помнит, заботится о своей болезненной матери.
-            Несмотря на нестабильную психику и негативные мысли, у него самая безобидная мечта – стать
-            известным стендап-комиком. Мама уверяла Артура, будто он рожден нести радость людям. По вечерам
-            они вместе сморят веселую передачу Мюррея Франклина и привычно спорят из-за кандидата в мэры
-            Томаса Уэйна. Артур – один из миллионов. Его никто не замечает, и поэтому никто не может
-            предположить, что он – спящий вулкан Готэма. Стоит ему дать волю своим демонам, и весь город
-            вспыхнет, как спичка. Тогда нервный неконтролируемый смех клоуна-неудачника Артура Флека
-            сменится искренним, пробирающим хохотом злодея Джокера.
-          </li>
-        </ul>
+        <div class="tab-content card2">
+          <div class="card2 tab-pane fade show active" v-if="currentTab === 'disc'" id="description">
+            <li class="list-group-item">
+              {{ film.description }}
+            </li>
+          </div>
+
+          <!--          <div class="comments-block">-->
+          <!--            <div class="comments-header">-->
+          <!--              <p>Комментариев: {{ comments.length }}</p>-->
+          <!--            </div>-->
+          <!--            <hr>-->
+          <!--            <div class="comments-content">-->
+          <!--              <comments-->
+          <!--                  v-bind:comments="comments"-->
+          <!--                  v-bind:users="users"-->
+          <!--                  @submit-comment="submitComment"-->
+          <!--                  @delete-comment="deleteComment"-->
+          <!--              />-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <!--        </div>-->
+
+          <div class="card2 tab-pane fade show active" v-if="currentTab === 'comments'" id="comments">
+            <li class="list-group-item">
+              {{ getComment() }}
+            </li>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// import Comments from "../component/comments";
+
 export default {
-name: 'films',
-    data() {
-  return {
-    film: {}
+  name: 'films',
+  props: ['hit'],
+  // components: {Comments},
+  data() {
+    return {
+      film: [],
+      currentTab: 'disc',
+      // comments: [],
+    }
+  },
+  created() {
+
+    let id = this.$route.params.id;
+    this.$http.get(`/v1/film/${id}`)
+        .then((response) => {
+          console.log(response.data)
+          this.film = response.data
+        })
+  },
+  methods: {
+    getGenre() {
+      var arr = this.film.infoFilm.genre.map(function (item) {
+        return item.name + ' '
+      })
+      arr = arr.join(', ')
+      return arr
+    },
+
+    getDirector() {
+      var arr = this.film.infoFilm.directors.map(function (item) {
+        return item.name + ' '
+      })
+      arr = arr.join(', ')
+      return arr
+    },
+
+    getComment() {
+      var arr = this.film.comments.map(function (item) {
+        return item.author.username + ' : ' + item.comment
+      })
+      arr = arr.join('\n')
+      return arr
+    },
+
+    // submitComment(commentText) {
+    //   const submissionData = {
+    //     description: commentText,
+    //     filmId: this.film.id
+    //   }
+    //       .then(() => {
+    //         this.$http.get('/comment/newsid', {params: {newsId: this.news.id}})
+    //             .then((response) => this.comments = [...response.data])
+    //       })
+    //       .catch((error) => alert(error.response.data.statusText))
+    // },
   }
-},
-created() {
-  // const url = this.$route.params.url
-  this.film = {
-    id: 1,
-    name: 'Фильм Джокер',
-    url: 'Джокер',
-    image: 'https://thumbs.dfs.ivi.ru/storage15/contents/7/d/726a60465521a979da1e41c3a01815.jpg',
-  }
-},
 }
 </script>

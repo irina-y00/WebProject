@@ -6,7 +6,7 @@
         <ul>
           <li v-for="(category, index) in filter.categories" :key="index">
             <label>
-              <input type="checkbox"> {{ category }}
+              <input type="checkbox"> {{ category.name }}
             </label>
           </li>
         </ul>
@@ -31,29 +31,17 @@ export default {
   data() {
     return {
       filter: {
-        categories: ['Ужасы', 'Драмы', 'Мелодрамы', 'Комедии', 'Боевики', 'Триллеры'],
+        categories: [],
       },
-      items: [
-        {
-          id: 1,
-          name: 'Джокер',
-          url: 'Джокер',
-          image: 'https://thumbs.dfs.ivi.ru/storage15/contents/7/d/726a60465521a979da1e41c3a01815.jpg',
-        },
-        {
-          id: 2,
-          name: 'Пираты карибского моря',
-          url: 'Пираты карибского моря',
-          image: 'https://thumbs.dfs.ivi.ru/storage2/contents/d/c/f009bc121ec961e914dfb6ca2e094d.jpg',
-        },
-        {
-          id: 3,
-          name: 'Основатель',
-          url: 'Основатель',
-          image: 'https://thumbs.dfs.ivi.ru/storage15/contents/0/9/1873d5a7e02390a8d273a7b54ef0fb.jpg',
-        },
-      ]
+      items: [],
+      result: []
     }
-  }
+  },
+  created() {
+    this.$http.get('/film')
+        .then((response) => this.items = response.data)
+    this.$http.get('/genre')
+        .then((response) => this.filter.categories = response.data)
+  },
 }
 </script>
