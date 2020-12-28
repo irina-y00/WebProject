@@ -17,7 +17,7 @@
           Введите ваш логин и пароль.
         </p>
 
-        <form @submit="signIn">
+        <form @submit.prevent="signIn">
           <div class="form-group">
             <label for="email">Адрес электронной почты</label>
             <input type="email" class="form-control " id="email" v-model="email" aria-describedby="emailHelp">
@@ -55,7 +55,8 @@
 </template>
 
 <script>
-import User from '@/components/user/user'
+
+import querystring from "querystring";
 
 export default {
   name: "SignIn",
@@ -67,16 +68,28 @@ export default {
     }
   },
   methods: {
-    signIn(e) {
-      if (this.validate()) {
-        const result = {
-          name: 'Иван Иванов',
-          email: 'ivan@ya.ru',
-          accessToken: 'jsdlf732649823709!ew98r#$432'
-        }
-        User.login(result)
-      }
-      e.preventDefault()
+    signIn() {
+      const formData = {
+        username: this.email,
+        password: this.password,
+        grant_type: 'password'
+      };
+      this.$http.post('/oauth/token', querystring.stringify(formData), {
+        headers: {
+          'authorization': 'Basic dWk6bXJJVG1ndnpSWE9a',
+          "Access-Control-Allow-Origin": "*",
+          'Content-Type': 'application/x-www-form-urlencoded',
+          "cache-control": "no-cache"
+          // 'Accept-Encoding': 'br'
+        }, baseURL: 'http://localhost:8080/',
+      })
+          .then((response) =>
+          {console.log(response.data)
+            localStorage.setItem('access_token', JSON.stringify(response.data.access_token))
+            localStorage.setItem('user_id', JSON.stringify(response.data.user_id))
+            this.$router.push({ name: 'Profile' })
+          })
+          .catch((error) => console.log(error))
     },
     validate() {
       this.errors = {}

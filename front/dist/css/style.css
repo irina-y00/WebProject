@@ -1,0 +1,125 @@
+/* цвет фона и рамки навигационного меню */
+.navbar-default {
+    background-color: #ffd5d1;
+    border-color: #ffd5d1;
+}
+/* цвет и размер текста, содержащий название сайта или бренда */
+.navbar-default .navbar-brand {
+    color: black;
+    font-size: 18pt;
+}
+/* цвет текста (название сайта или бренда), при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #696969;
+}
+/* Цвет пунктов навигационного меню */
+.navbar-default .navbar-nav > li > a {
+    color: black;
+}
+/*/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #696969;
+}
+/* Цвет и фон активного пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: black;
+    background-color: #ffd5d1;
+}
+
+.btn:hover,
+.btn:focus{
+    color: black;
+    background-color: #696969;
+}
+
+.btn{
+    background-color: #ffdfd5;
+    border-color: #696969;
+    color: black;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.btn-nav{
+    margin-left: 10px;
+}
+.carousel{
+    background-color: #ffd5d1;
+}
+
+.carousel-item img{
+    margin-left: 20%;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:hover,
+.carousel-control-next:focus{
+    background-color: #ffd5d1;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer{
+    background-color: #ffdfd531;
+}
+
+.modal-title{
+    margin-left: 36%;
+}
+
+.button-email,
+.button-password{
+    margin: 10px;
+}
+
+.hide-password{
+    color: black;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.hide-password:hover,
+.hide-password:focus{
+    color: #696969;
+}
+
+.ref-registration,
+.ref-registration:hover,
+.ref-registration:focus{
+    color: black;
+}
+.modal-body input[type="password"] {
+    margin-bottom: 10px;
+}
+
+.modal-body input[type="email"] {
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color: #c3adad;
+    /*margin-top: 16px;*/
+    height: 80px;
+}
+
+.marketing{
+    /*background-color: rgba(146, 96, 79, 0.13);*/
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.img-film{
+    margin-top: 16px;
+    margin-left: 23%;
+}
+
+.catalog-title{
+    /*margin-right: 10px;*/
+    width: 200px;
+}
