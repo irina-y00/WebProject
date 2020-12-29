@@ -57,11 +57,12 @@
 <script>
 
 import querystring from "querystring";
-
+import User from "@/components/user/user"
 export default {
   name: "SignIn",
   data() {
     return {
+      user: User,
       email: '',
       password: '',
       errors: {}
@@ -85,8 +86,8 @@ export default {
       })
           .then((response) =>
           {console.log(response.data)
-            localStorage.setItem('access_token', JSON.stringify(response.data.access_token))
-            localStorage.setItem('user_id', JSON.stringify(response.data.user_id))
+            this.user.setAccessToken(response.data.access_token)
+            this.user.setUserId(response.data.user_id)
             this.$router.push({ name: 'Profile' })
           })
           .catch((error) => console.log(error))

@@ -3,20 +3,24 @@ export default {
     email: null,
     accessToken: null,
     isAuth() {
-        this.load()
-        return this.accessToken !== null
-    },
-    login(data) {
-        localStorage.setItem('user', JSON.stringify(data))
-        this.name = data.name
-        this.email = data.email
-        this.accessToken = data.accessToken
+        return localStorage.getItem('user_id') !== null;
+
     },
     logout() {
-        localStorage.removeItem('user')
-        this.name = null
-        this.email = null
-        this.accessToken = null
+        localStorage.clear()
+
+    },
+    getUserId(){
+        return JSON.parse(localStorage.getItem('user_id'))
+    },
+    getAccessToken(){
+        return JSON.parse(localStorage.getItem('access_token'))
+    },
+    setAccessToken(){
+        localStorage.setItem('access_token', JSON.stringify(access_token))
+    },
+    setUserId(){
+        localStorage.setItem('user_id', JSON.stringify(user_id))
     },
     load() {
         let data = localStorage.getItem('user')
